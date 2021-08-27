@@ -181,6 +181,7 @@ class TimerViewController: UIViewController {
         self.timers.append(task)
         
         newTimerStart()
+        view.endEditing(true)
     }
     
     private func showAlert(title: String, message: String) {
@@ -232,6 +233,10 @@ extension TimerViewController: UITableViewDelegate, UITableViewDataSource {
         secondFooterView.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 10).isActive = true
         
         return returnedView
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
 }
